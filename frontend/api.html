@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1 id="x">hello it sis working!</h1>
+        <script>
+             fetch('http://127.0.0.1:5001/hello')
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+           function appendData(data){
+             maindata = document.getElementById('x');
+            var newdiv = document.createElement("h1");
+            //newdiv.innerHTML = "hey hai"+" "+data;
+            $(newdiv).html("hey ravi"+" "+data);
+            maindata.appendChild(newdiv);
+             console.log(data);
+            }
+        // $(document).ready(function(){
+        //         $.ajax({
+        //                 url: "http://127.0.0.1:5001/hello",
+        //                 type: 'GET',
+        //                 dataType: 'text',
+        //                 success: function(res) {
+        //                     $('#x').html(res);
+        //                     console.log(res);
+        //                 }
+        //             });
+
+        //      })
+        </script>
+    </body>
+</html>
