@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+<div class="container" style="position:relative;top:25%;">
+<div class="row">
+    <div class="col-md-3 col-l-3 col-xl-3 col-xs-0 col-sm-0"></div>
+    <div class="col-md-6 col-l-6 col-xl-6 col-xs-12 col-sm-12" style="border:2px solid;border-radius:7px;">
+        <form id="signupform">
+            <h3 class="text-center mt-3">Sign Up Form</h3>
+            <div class="form-group">
+                  <label>Username:</label>
+                  <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+                  <label>Password:</label>
+                  <input type="password" class="form-control" id="password" name="password">   
+            </div>
+            <div class="form-group">
+                <label>Loacation:</label>
+                <input type="text" class="form-control" id="loacation" name="loacation">   
+          </div>
+          <div style="display:none;">
+      
+          </div>
+          <br>
+          <button type="button" class="btn btn-info mr-3 create">Create</button>
+            <button type="reset" class="btn btn-info mr-3" >Reset</button>
+          <a type="submit" href="signin.html" class="btn btn-info">Cancel</a>
+        </form>
+    </div>
+    <div class="col-md-3 col-l-3 col-xl-3 col-xs-0 col-sm-0"></div>
+</div>
+</div>
+</body>
+<script>
+    $(document).ready(function(){
+        function myFunction(){
+            $("#signupform").reset();   
+        }
+        $(".create").click(function(){
+            var username =  $("#username").val();
+            var password = $("#password").val();
+            var loacation = $("#loacation").val();
+            if( username && password && loacation)
+                window.location = "index.html";
+        });
+    });
+</script>
+</html>

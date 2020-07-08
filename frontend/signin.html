@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+  <title>New Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+<div class="container" style="position:relative;top:25%;">
+<div class="row">
+    <div class="col-md-3 col-l-3 col-xl-3 col-xs-0 col-sm-0"></div>
+    <div class="col-md-6 col-l-6 col-xl-6 col-xs-12 col-sm-12" style="border:2px solid;border-radius:7px;">
+        <form>
+            <h3 class="text-center mt-3">Sign In Form</h3>
+            <div class="form-group">
+                  <label>Username:</label>
+                  <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+                  <label>Password:</label>
+                  <input type="password" class="form-control" id="password" name="password">   
+            </div>
+            <div class="form-check">
+              <label for="remember" class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="rempass">Remember Password
+              </label>
+          </div>
+          <div id ="error" class="mt-2">
+      
+          </div>
+          <br>
+          <button type="button" class="btn btn-info mr-3 signin">Sign In</button>
+          <a type="submit" href="signup.html" class="btn btn-info">Sign Up</a>
+        </form>
+    </div>
+    <div class="col-md-3 col-l-3 col-xl-3 col-xs-0 col-sm-0"></div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $(".signin").click(function(){
+            var username =  $("#username").val();
+            var password = $("#password").val();
+            var rp = $("#rempass").is(":checked");
+            if(username && password)
+              $("#error").html("please check the checkbox!").css("color","red");
+            else if(username)
+              $("#error").html("please enter the password and checkbox!").css("color","red");
+            else if(password)
+              $("#error").html("please enter the password and checkbox!").css("color","red");
+            else if(rp)
+            $("#error").html("please enter the username and password").css("color","red");
+            else if(!(username && password && rp)){
+                $("#error").html("please enter the username,password and checkbox!").css("color","red");
+            }
+            else if(username && password && rp){
+                document.getElementById("error").innerHTML="";
+             }
+            var x= $('#error').is(':empty');
+
+           // if (x){
+            if((username&&password) || rp)
+                window.location = "index.html";
+            else
+                window.location = "signin.html";
+          // }
+            
+        });
+        
+    });
+</script>
+</body>
+</html>
